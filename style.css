@@ -234,3 +234,46 @@ button:hover {
   from { opacity: 1; transform: scale(1); }
   to { opacity: 0; transform: scale(2); }
 }
+
+/* -------------------- MOBILE FIX -------------------- */
+@media (max-width: 600px) {
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .reason-card {
+    width: 180px;
+    height: 180px;
+  }
+
+  .reason-card::before,
+  .reason-card::after {
+    width: 180px;
+    height: 180px;
+  }
+
+  .reason-card::before {
+    top: -90px;
+  }
+
+  .reason-card::after {
+    left: 90px;
+  }
+
+  .reason-card span {
+    width: 140px;
+    font-size: 14px;
+  }
+
+}
+
+#secretMessage {
+  margin-top: 25px;
+  font-size: 22px;
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  line-height: 1.6;
+  text-align: center;
+}
