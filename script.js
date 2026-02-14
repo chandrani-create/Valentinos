@@ -17,17 +17,18 @@ function checkPassword() {
   }
 }
 
+
 /* ---------------- YES FLOW ---------------- */
 function sayYes() {
 
   const audio = document.getElementById("bgMusic");
 
-  // Start music after user click (allowed by browser)
-  audio.play().then(() => {
-    console.log("Music started successfully");
-  }).catch((error) => {
-    console.log("Autoplay blocked:", error);
-  });
+  // Start music after user click
+  if (audio) {
+    audio.play().catch(error => {
+      console.log("Autoplay blocked:", error);
+    });
+  }
 
   // Hide proposal section
   document.getElementById("proposalSection").classList.add("hidden");
@@ -44,23 +45,8 @@ function sayYes() {
     document.getElementById("finalSection").classList.remove("hidden");
     startLoveMeter();
   }, 2000);
-    }
-
-    // Smooth Love Meter
-    let love = 0;
-    const loveFill = document.getElementById("loveFill");
-
-    const interval = setInterval(() => {
-      if (love >= 100) {
-        clearInterval(interval);
-      } else {
-        love++;
-        loveFill.style.width = love + "%";
-      }
-    }, 20);
-
-  }, 2000);
 }
+
 
 /* ---------------- SECRET ---------------- */
 document.addEventListener("DOMContentLoaded", () => {
@@ -68,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const secretBtn = document.getElementById("secretBtn");
 
   if (secretBtn) {
-
     secretBtn.addEventListener("click", () => {
 
       const secretMessage = document.getElementById("secretMessage");
@@ -83,10 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
       secretMessage.classList.remove("hidden");
 
     });
-
   }
 
 });
+
 
 /* ---------------- SPARKLE CURSOR ---------------- */
 document.addEventListener("mousemove", function(e) {
@@ -98,6 +83,7 @@ document.addEventListener("mousemove", function(e) {
 
   setTimeout(() => sparkle.remove(), 600);
 });
+
 
 /* ---------------- CONFETTI ---------------- */
 function startConfetti() {
@@ -127,13 +113,18 @@ function startConfetti() {
     });
     requestAnimationFrame(draw);
   }
+
   draw();
 }
 
+
+/* ---------------- LOVE METER ---------------- */
 function startLoveMeter() {
 
   let progress = 0;
   const loveFill = document.getElementById("loveFill");
+
+  if (!loveFill) return;
 
   const interval = setInterval(() => {
 
@@ -144,6 +135,6 @@ function startLoveMeter() {
       loveFill.style.width = progress + "%";
     }
 
-  }, 25); // slower smooth animation
-}
+  }, 25);
 
+}
