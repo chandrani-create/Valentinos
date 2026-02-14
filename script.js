@@ -21,16 +21,30 @@ function checkPassword() {
 function sayYes() {
 
   const audio = document.getElementById("bgMusic");
-  audio.play().catch(e => console.log("Autoplay blocked"));
 
+  // Start music after user click (allowed by browser)
+  audio.play().then(() => {
+    console.log("Music started successfully");
+  }).catch((error) => {
+    console.log("Autoplay blocked:", error);
+  });
+
+  // Hide proposal section
   document.getElementById("proposalSection").classList.add("hidden");
+
+  // Show yay section
   document.getElementById("yaySection").classList.remove("hidden");
 
+  // Start confetti
   startConfetti();
 
+  // After 2 seconds move to final section
   setTimeout(() => {
     document.getElementById("yaySection").classList.add("hidden");
     document.getElementById("finalSection").classList.remove("hidden");
+    startLoveMeter();
+  }, 2000);
+    }
 
     // Smooth Love Meter
     let love = 0;
