@@ -57,11 +57,11 @@ button:hover {
   z-index: 2;
 }
 
-/* ✅ FIXED SIZE SO TEXT DOESN’T CUT */
+/* ❤️ HEART CARD */
 .reason-card {
   position: relative;
-  width: 170px;
-  height: 170px;
+  width: 180px;              /* Slightly increased */
+  height: 180px;             /* Slightly increased */
   background: #ff4d88;
   transform: rotate(-45deg);
   display: flex;
@@ -71,209 +71,30 @@ button:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* Top circle */
 .reason-card::before,
 .reason-card::after {
   content: "";
   position: absolute;
-  width: 170px;
-  height: 170px;
+  width: 180px;
+  height: 180px;
   background: #ff4d88;
   border-radius: 50%;
 }
 
 .reason-card::before {
-  top: -85px;
+  top: -90px;
   left: 0;
 }
 
 .reason-card::after {
-  left: 85px;
+  left: 90px;
   top: 0;
 }
 
-/* Rotate text back */
+/* Rotate text back properly */
 .reason-card span {
   transform: rotate(45deg);
-  font-size: 13px;
+  font-size: 14px;
   text-align: center;
-  width: 130px;
-  line-height: 1.3;
-  color: white;
-}
-
-@keyframes heartPulse {
-  0% { transform: rotate(-45deg) scale(1); }
-  50% { transform: rotate(-45deg) scale(1.05); }
-  100% { transform: rotate(-45deg) scale(1); }
-}
-
-/* -------------------- FINAL CONFIRMATION -------------------- */
-
-.confirm-main {
-  font-family: 'Pacifico', cursive;
-  font-size: 50px;
-  color: #ff2e75;
-  margin-bottom: 20px;
-}
-
-.song-line {
-  font-style: italic;
-  margin: 20px 0;
-  font-size: 20px;
-  color: #d63384;
-}
-
-/* -------------------- LOVE METER -------------------- */
-
-.love-meter-container {
-  margin-top: 35px;
-}
-
-.love-meter {
-  width: 260px;
-  height: 20px;
-  background: #ffd6ec;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 10px auto;
-}
-
-/* ✅ GLOW EFFECT ADDED */
-.love-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(to right, hotpink, deeppink);
-  border-radius: 20px;
-  transition: width 2s ease;
-  box-shadow: 0 0 15px hotpink, 0 0 30px deeppink;
-}
-
-/* -------------------- FLOATING RANDOM HEARTS -------------------- */
-
-.random-heart {
-  position: fixed;
-  bottom: 0;
-  font-size: 25px;
-  animation: floatHeart linear forwards;
-}
-
-@keyframes floatHeart {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-100vh); opacity: 0; }
-}
-
-/* -------------------- BACKGROUND FLOATING HEARTS -------------------- */
-
-.floating-hearts {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.bg-heart {
-  position: absolute;
-  bottom: -50px;
-  animation: floatUp linear forwards;
-  opacity: 0.7;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-50vh) translateX(20px);
-  }
-  100% {
-    transform: translateY(-110vh) translateX(-20px);
-    opacity: 0;
-  }
-}
-
-.hidden {
-  display: none;
-}
-
-/* -------------------- SECRET MESSAGE FIX -------------------- */
-
-.secret {
-  margin-top: 20px;
-  font-size: 20px;
-  text-align: center;
-}
-
-/* -------------------- SIGNATURE -------------------- */
-
-.signature {
-  margin-top: 30px;
-  font-family: 'Brush Script MT', cursive;
-  font-size: 26px;
-  text-align: center;
-}
-
-/* -------------------- SPARKLE CURSOR -------------------- */
-
-.sparkle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: sparkleFade 0.6s linear forwards;
-  box-shadow: 0 0 10px white, 0 0 20px pink;
-}
-
-@keyframes sparkleFade {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(2); }
-}
-
-/* -------------------- MOBILE FIX -------------------- */
-@media (max-width: 600px) {
-
-  .reasons-grid {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .reason-card {
-    width: 180px;
-    height: 180px;
-  }
-
-  .reason-card::before,
-  .reason-card::after {
-    width: 180px;
-    height: 180px;
-  }
-
-  .reason-card::before {
-    top: -90px;
-  }
-
-  .reason-card::after {
-    left: 90px;
-  }
-
-  .reason-card span {
-    width: 140px;
-    font-size: 14px;
-  }
-
-}
-
-#secretMessage {
-  margin-top: 25px;
-  font-size: 22px;
-  font-family: 'Dancing Script', cursive;
-  color: white;
-  line-height: 1.6;
-  text-align: center;
-}
+  width:
