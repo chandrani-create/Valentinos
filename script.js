@@ -8,7 +8,7 @@ function checkPassword() {
   ];
 
   if (validPasswords.includes(input)) {
-    createFloatingHearts();
+    createFloatingHearts();   // now this works
     setTimeout(() => {
       window.location.href = "reasons.html";
     }, 1500);
@@ -18,28 +18,41 @@ function checkPassword() {
 }
 
 
+/* ---------------- FLOATING HEARTS FUNCTION (MISSING FIXED) ---------------- */
+function createFloatingHearts() {
+  const container = document.querySelector(".floating-hearts");
+  if (!container) return;
+
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement("div");
+    heart.className = "bg-heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    container.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+}
+
+
 /* ---------------- YES FLOW ---------------- */
 function sayYes() {
 
   const audio = document.getElementById("bgMusic");
 
-  // Start music after user click
   if (audio) {
     audio.play().catch(error => {
       console.log("Autoplay blocked:", error);
     });
   }
 
-  // Hide proposal section
   document.getElementById("proposalSection").classList.add("hidden");
-
-  // Show yay section
   document.getElementById("yaySection").classList.remove("hidden");
 
-  // Start confetti
   startConfetti();
 
-  // After 2 seconds move to final section
   setTimeout(() => {
     document.getElementById("yaySection").classList.add("hidden");
     document.getElementById("finalSection").classList.remove("hidden");
@@ -123,7 +136,6 @@ function startLoveMeter() {
 
   let progress = 0;
   const loveFill = document.getElementById("loveFill");
-
   if (!loveFill) return;
 
   const interval = setInterval(() => {
