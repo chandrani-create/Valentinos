@@ -64,13 +64,28 @@ function sayYes() {
 
 /* ---------------- SECRET ---------------- */
 document.addEventListener("DOMContentLoaded", () => {
+
   const secretBtn = document.getElementById("secretBtn");
+
   if (secretBtn) {
+
     secretBtn.addEventListener("click", () => {
-      document.getElementById("secretMessage").classList.remove("hidden");
-      document.getElementById("signature").classList.remove("hidden");
+
+      const secretMessage = document.getElementById("secretMessage");
+
+      secretMessage.innerHTML = `
+        I don't just like you.<br>
+        I choose you.<br><br>
+        And I will choose you,<br>
+        again and again 💖
+      `;
+
+      secretMessage.classList.remove("hidden");
+
     });
+
   }
+
 });
 
 /* ---------------- SPARKLE CURSOR ---------------- */
@@ -114,3 +129,21 @@ function startConfetti() {
   }
   draw();
 }
+
+function startLoveMeter() {
+
+  let progress = 0;
+  const loveFill = document.getElementById("loveFill");
+
+  const interval = setInterval(() => {
+
+    if (progress >= 100) {
+      clearInterval(interval);
+    } else {
+      progress += 1;
+      loveFill.style.width = progress + "%";
+    }
+
+  }, 25); // slower smooth animation
+}
+
